@@ -1,0 +1,194 @@
+html{
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+    --couleur-fond:#000;
+    --couleur-elements:#FFF;
+    --couleur-on-sait-pas-trop:#808080;
+    --couleur-on-sait-pas-trop-foncee:#222;
+    --couleur-erreur:#F00;
+    --couleur-succes:#0f0;
+}
+body{
+    background-color: var(--couleur-fond);
+    color: #ffffff;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    max-width:100vw;
+    overflow: hidden;
+    margin: 0;
+    padding:0;
+    user-select: none;
+}
+
+.terrain{
+    transition: filter 1s, transform 1s;
+    width:90vmin;
+    height: 45vmin;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    border-top-color: var(--couleur-elements);
+    border-bottom-color: var(--couleur-elements);
+    position: relative;
+    transform-origin: center;
+    max-height: 90vh;
+}
+
+.terrain > *{
+    position: absolute;
+}
+.terrain.pause{
+    filter: blur(0px);
+}
+.terrain.pause .balle{
+    background-color: var(--couleur-erreur);
+}
+
+.balle{
+    transition: color 2s;
+    background-color: #fff;
+    --diamettre:20px;
+    width: var(--diamettre);
+    height: var(--diamettre);
+    top: calc( 50% - var(--diamettre) / 2 );
+    left: calc( 50% - var(--diamettre) / 2 );
+    border-radius: 100%;
+}
+
+.raquette{
+    --hauteur:25%;
+    background-color: #fff;
+    width: 10px;
+    height:var(--hauteur);
+    outline: 1px solid var(--couleur-fond);
+    outline-offset: -1px;
+    top:calc( 50% - var(--hauteur) / 2  );
+}
+.raquette.joueur1{
+    left: 0;
+}
+.raquette.joueur2{
+    right: 0;
+}
+
+.raquette.touche-balle{
+    background-color: #0f0;
+}
+.raquette.rate-balle{
+    background-color: var(--couleur-erreur);
+}
+/** effet de couleur qui peut être utilisé à plusieurs endroits **/
+.flash{
+    color:var(--couleur-succes) !important;
+}
+
+/** les scores des joueurs **/
+.score{
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color:var(--couleur-elements);
+    opacity: 0.2;
+    transition: color 0.5s;
+}
+.score2{
+    left:50%;
+}
+
+
+
+/** les boutons qui symbolisent les touches du clavier **/
+.touche{
+    color: var(--couleur-on-sait-pas-trop);
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--couleur-on-sait-pas-trop-foncee);
+    border-radius: 4px;
+    user-select:none;
+}
+
+.touche.top{
+    top:-15px;
+}
+.touche.left{
+    left:-40px;
+}
+.touche.bottom{
+    bottom:-15px;
+}
+.touche.right{
+    right: -40px;
+}
+
+.ecran-debut{
+    transition: all 3s;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
+}
+.ecran-debut>*{
+    margin: 10px;
+}
+.ecran-debut .touche{
+    display: inline-flex;
+    transform: rotate(0deg) !important;
+}
+
+/* disparition de l'écran de début */
+.ecran-debut{
+    transition: all 2s;
+    transition-duration: 1s;
+    will-change: opacity, filter;
+    opacity: 1;
+    filter: blur(0px);
+}
+.ecran-debut.invisible{
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(16px);
+}
+
+/* un simple bouton (utilisé uniquement sur l'écran de début) */
+.btn{
+    color: var(--couleur-fond);
+    background-color:var(--couleur-elements);
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+@media (orientation:portrait){
+    .terrain{
+        transform: rotate(90deg);
+    }
+    .touche,.score{
+        transform: rotate(-90deg);
+    }
+}
+
+
+

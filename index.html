@@ -1,0 +1,67 @@
+<html lang="fr">
+    <head>
+        <title>PONG</title>
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <link rel="stylesheet" href="styles/pong.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    </head>
+    <body>
+
+        <div class="ecran-debut">
+            <div>
+                Joueur 1 <br><br>
+                utilisez les touches <br><br>
+                <span class="touche">A</span> 
+                    et 
+                <span class="touche">Q</span> 
+            </div>
+            <div>
+                Joueur 2 <br><br>
+                utilisez les touches <br><br> 
+                <span class="touche">P</span> 
+                    et 
+                <span class="touche">M</span> 
+            </div>
+            <a href="#" class="btn btn-go">JOUER</a>
+        </div>
+
+        <div class="terrain">
+            <!-- Les touches-->
+            <div class="touche top left"        id="monte1">A</div>
+            <div class="touche bottom left"     id="descend1">Q</div>
+            <div class="touche top right"       id="monte2">P</div>
+            <div class="touche bottom right"    id="descend2">M</div>
+            <!-- Les scores-->
+            <div class="score score1">0</div>
+            <div class="score score2">0</div>
+            <!-- La balle-->
+            <div class="balle"></div>
+            <!-- Les raquettes-->
+            <div class="raquette joueur1"></div>
+            <div class="raquette joueur2"></div>
+        </div>
+
+        <script src="libs/jquery.min.js"></script>
+        <script src="libs/soundjs.min.js"></script>
+        <script type="text/javascript" src="js/ElementHtml.js"></script>
+        <script type="text/javascript" src="js/Terrain.js"></script>
+        <script type="text/javascript" src="js/Balle.js"></script>
+        <script type="text/javascript" src="js/Joueur.js"></script>
+        <script type="text/javascript" src="js/Audio.js"></script>
+        <script type="text/javascript" src="js/Controles.js"></script>
+        <script type="text/javascript" src="js/Partie.js"></script>
+        <script type="text/javascript" src="js/pong.js"></script>
+    </body>
+    <script>
+        //prévention de cache
+        $("script").each(function(){
+            let src=$(this).attr("src")+"?"+Math.random();
+            $(this).attr("src",src);
+        });
+        $("link").each(function(){
+            let href=$(this).attr("href")+"?"+Math.random();
+            $(this).attr("href",href);
+        });
+    </script>
+</html>
