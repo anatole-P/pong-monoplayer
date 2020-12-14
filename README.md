@@ -2,4 +2,4 @@
 touches H / B 
 
 #### C'est jouable ici.
-https://anatole-p.github.io/pong-jquery
+https://anatole-p.github.io/pong-monoplayer/index.html
