@@ -20,7 +20,6 @@ class Partie {
             e.preventDefault();
             me.demarreNouveauJeu();
             //plein écran
-            $("body")[0].requestFullscreen();
         });
         //une boucle qui fait tourner notre jeu
         setInterval(() => {

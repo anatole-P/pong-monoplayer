@@ -37,7 +37,7 @@ class Balle extends ElementHtml {
          * vitesse de déplacement maximum pour éviter que le jeu devienne injouable
          * @type {Number}
          */
-        this.vitesseMax = 0;
+        this.vitesseMax = 10;
         /**
          * vitesse d'accelération qu'on incrémente à chaque toucher de raquette
          * @type {Number}
@@ -124,7 +124,7 @@ class Balle extends ElementHtml {
      */
     calculeVariablesQuiDependentDeLaTailleDeLEcran() {
         this.vitesseMax = terrain.largeur / 100;
-        this.acceleration = terrain.largeur / 2000;
+        this.acceleration = terrain.largeur / 20000;
         this.vitesseDepart = terrain.largeur / 500;
     }
     /**
@@ -178,7 +178,10 @@ class Balle extends ElementHtml {
             this.haut += this.vitesse * this.directionY;
             audio.playNote();
         }
-
+        if (this.width > terrain.largeur ){
+            joueur1.perdu();
+            joueur2.perdu();
+        }
         //raquettes
         if (this._toucheJoueur1() || this._toucheJoueur2()) {
 
@@ -197,10 +200,10 @@ class Balle extends ElementHtml {
             this._accelere();
         }
         //perdu ?
-        if (this._toucheCoteGauche()) {
-            joueur2.gagne();
+        if (this._toucheJoueur2()) {
+            joueur1.gagne();
         }
-        if (this._toucheCoteDroite()) {
+        if (this._toucheJoueur1()) {
             joueur1.gagne();
         }
     }

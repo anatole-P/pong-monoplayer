@@ -96,6 +96,10 @@ class Joueur extends ElementHtml{
      * Fait gagner des points au joueur
      * @param {Number} points Les points gagnés
      */
+    incrementeVie(vie){
+        this.vie-=vie;
+
+    }
     incrementeScore(points){
         this.score+=points;
         this._effetScore();
@@ -124,7 +128,10 @@ class Joueur extends ElementHtml{
         this._rafraichitHTML();
         audio.fausseNote();
         terrain.tilt();
-        partie.demarreNouveauJeu();
+    }
+    perdu(){
+        this.incrementeVie(1)
+        this.demarreNouveauJeu();
     }
     /**
      * Applique les valeurs en CSS

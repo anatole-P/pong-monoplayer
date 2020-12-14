@@ -21,7 +21,7 @@ let joueur1=new Joueur($(".joueur1"),$(".score1"),$("#monte1"),$("#descend1"));
  */
 let joueur2=new Joueur(
     $(".joueur2"),
-    $(".score2"),
+    $(".score1"),
     $("#monte2"),
     $("#descend2")
 );

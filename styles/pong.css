@@ -2,16 +2,16 @@ html{
     margin: 0;
     padding:0;
     overflow: hidden;
-    --couleur-fond:#000;
-    --couleur-elements:#FFF;
+    --couleur-fond:#FFF;
+    --couleur-elements:#FF69B4;
     --couleur-on-sait-pas-trop:#808080;
-    --couleur-on-sait-pas-trop-foncee:#222;
+    --couleur-on-sait-pas-trop-foncee:#FFFFFF;
     --couleur-erreur:#F00;
     --couleur-succes:#0f0;
 }
 body{
     background-color: var(--couleur-fond);
-    color: #ffffff;
+    color: #FF69B4;
     font-family: monospace;
     display: flex;
     justify-content: center;
@@ -49,7 +49,7 @@ body{
 
 .balle{
     transition: color 2s;
-    background-color: #fff;
+    background-color: #FFC0CB;
     --diamettre:20px;
     width: var(--diamettre);
     height: var(--diamettre);
@@ -60,7 +60,7 @@ body{
 
 .raquette{
     --hauteur:25%;
-    background-color: #fff;
+    background-color: #FF69B4;
     width: 10px;
     height:var(--hauteur);
     outline: 1px solid var(--couleur-fond);
@@ -75,7 +75,7 @@ body{
 }
 
 .raquette.touche-balle{
-    background-color: #0f0;
+    background-color: #2f00ff;
 }
 .raquette.rate-balle{
     background-color: var(--couleur-erreur);
@@ -87,22 +87,18 @@ body{
 
 /** les scores des joueurs **/
 .score{
-    top: 0;
+    bottom: 5%;
     left: 0;
-    width: 50%;
-    height: 100%;
-    display: flex;
+    width: 5%;
+    /*height: 100%;*/
+    display: fixed;
     justify-content: center;
-    align-items: center;
+    align-items:center;
     font-size: 40px;
     color:var(--couleur-elements);
     opacity: 0.2;
     transition: color 0.5s;
 }
-.score2{
-    left:50%;
-}
-
 
 
 /** les boutons qui symbolisent les touches du clavier **/
@@ -139,7 +135,6 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
     z-index: 1;
     display: flex;
 
@@ -153,6 +148,7 @@ body{
     margin: 10px;
 }
 .ecran-debut .touche{
+    color: #FF69B4;
     display: inline-flex;
     transform: rotate(0deg) !important;
 }
